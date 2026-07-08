@@ -4,38 +4,44 @@
 
 {% for post in posts %}
 
-<div class="card mb-4">
+<article class="media content-section mb-4">
 
-    <div class="card-body">
+    <img
+        src="{{ url_for('static', path='samuel.jpg') }}"
+        class="rounded-circle article-img me-3"
+        width="64"
+        height="64"
+        alt="Profile Picture">
 
-        <div class="d-flex align-items-center mb-3">
+    <div class="flex-grow-1">
 
-            <img
-                src="{{ url_for('static', path='samuel.jpg') }}"
-                class="rounded-circle me-3"
-                width="70"
-                height="70"
-                alt="Profile Picture">
+        <div class="article-metadata mb-2">
 
-            <div>
+            <a class="me-2 text-decoration-none" href="#">
+                {{ post.author }}
+            </a>
 
-                <h5 class="mb-0">{{ post.author }}</h5>
-
-                <small class="text-muted">
-                    {{ post.date_posted }}
-                </small>
-
-            </div>
+            <small class="text-body-secondary">
+                {{ post.date_posted }}
+            </small>
 
         </div>
 
-        <h3>{{ post.title }}</h3>
+        <h2>
+            <a
+                class="article-title text-decoration-none"
+                href="{{ url_for('post_page', post_id=post.id) }}">
+                {{ post.title }}
+            </a>
+        </h2>
 
-        <p>{{ post.content }}</p>
+        <p class="article-content">
+            {{ post.content }}
+        </p>
 
     </div>
 
-</div>
+</article>
 
 {% endfor %}
 

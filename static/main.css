@@ -1,0 +1,31 @@
+.content-section {
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.article-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+.article-title {
+    color: #222;
+    text-decoration: none;
+}
+
+.article-title:hover {
+    color: #0d6efd;
+}
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-metadata {
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}

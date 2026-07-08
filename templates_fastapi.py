@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException, status
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -30,7 +30,7 @@ posts = [
 
 @app.get("/")
 @app.get("/posts")
-async def home(request: Request):
+def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="home.html",
@@ -39,8 +39,9 @@ async def home(request: Request):
             "posts": posts,
         },
     )
-
-
+    
 @app.get("/api/posts")
-async def get_posts():
+def get_posts():
     return posts
+
+
